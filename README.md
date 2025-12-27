@@ -6,7 +6,7 @@ A website where users can manage tasks, track time spent using a real-time timer
 
 - Sveltekit
 - Drizzle ORM
-- Lucia Auth
+- Lucia Auth's session based authentication architecture
 - Postgresql
 
 ## Live Preview
@@ -42,8 +42,8 @@ password: Test@123
 
 ## Note
 
-I built this project in two days while trying out new libraries. Drizzle and Lucia Auth took a long time to setup with Sveltekit and Postgresql, mostly because of their sub-optimal documentaion (I later found out Lucia Auth was deprecated 5 months ago).
-UI was made with some help from Claude, other than that AIs are not helpful at all as they dont even know Svelte 5 exists, and runes is a feature.
+I built this project in two days while trying out new libraries. Drizzle and Lucia Auth took a long time to setup with Sveltekit and Postgresql, ~~mostly because of their sub-optimal documentation (I later found out Lucia Auth was deprecated 5 months ago).~~ Turns out that the lucia package was deprecated and now the project is just a learning resource on how to implement a secure session-based authentication architecture. So I basically had to do all the authentication work myself.
+UI was made with some help from Claude, other than that AIs are not helpful at all as they don't even know Svelte 5 exists, and runes is a feature.
 
 I spent a whole day reading documentation and demo project provided by Lucia Auth. Later I found out another auth library to use for future projects - Better Auth (I found it through the it's creator on reddit.)
 
