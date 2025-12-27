@@ -23,6 +23,13 @@
 			{#if user}
 				<li>
 					<a
+						href="/dashboard"
+						class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+						>Dashboard</a
+					>
+				</li>
+				<li>
+					<a
 						href="/tasks"
 						class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">Tasks</a
 					>

@@ -7,7 +7,7 @@
 	let { children, data } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head><link rel="icon" href={favicon} /><title>TaskFlow</title></svelte:head>
 <NavBar user={data.user} />
 {@render children()}
 <Footer />
