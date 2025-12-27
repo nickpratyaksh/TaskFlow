@@ -48,11 +48,13 @@ export const actions = {
 			return fail(400, { message: 'Invalid task id' });
 		}
 
+		const isTaskCompleted = status === 'completed';
+
 		try {
 			const result = await db
 				.update(task)
 				//@ts-expect-error i know what i am doing
-				.set({ title, description, status })
+				.set({ title, description, status, completedAt: isTaskCompleted ? new Date() : null })
 				.where(and(eq(task.id, taskId), eq(task.userId, event.locals.user.id)))
 				.returning();
 			return { task: result.at(0) };

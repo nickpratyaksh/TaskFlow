@@ -3,6 +3,7 @@
 	import TaskCard from '$lib/components/tasksPage/TaskCard.svelte';
 	import CreateTaskModal from '$lib/components/tasksPage/CreateTaskModal.svelte';
 	import EditTaskModal from '$lib/components/tasksPage/EditTaskModal.svelte';
+	import { onDestroy } from 'svelte';
 
 	let showModal = $state(false);
 	let editModalTask: Task | null = $state(null);
@@ -34,6 +35,7 @@
 			elapsedSeconds += 1;
 		}, 1000);
 	}
+
 	function stopLocalTimer() {
 		if (interval) clearInterval(interval);
 		interval = null;
@@ -41,10 +43,16 @@
 		elapsedSeconds = 0;
 	}
 
-	$effect(() => {
+	if (existingTimer) {
+		activeTaskId = existingTimer.taskId;
+		elapsedSeconds = Math.floor((Date.now() - new Date(existingTimer.startTime).getTime()) / 1000);
+
 		interval = setInterval(() => {
 			elapsedSeconds += 1;
 		}, 1000);
+	}
+	onDestroy(() => {
+		if (interval) clearInterval(interval);
 	});
 </script>
 
@@ -57,7 +65,7 @@
 		<EditTaskModal {editModalTask} {openEditModal} onEdit={updateTaskInList} />
 	{/if}
 
-	<main class="mx-auto mt-16 max-w-7xl px-8 py-8">
+	<main class="mx-auto mt-16 min-h-screen max-w-7xl px-8 py-8">
 		<div class="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
 			<div>
 				<h1 class="mb-2 text-3xl font-bold text-gray-900">My Tasks</h1>

@@ -11,7 +11,8 @@ CREATE TABLE "task" (
 	"title" text NOT NULL,
 	"description" text,
 	"status" "task_status" DEFAULT 'pending' NOT NULL,
-	"created_at" timestamp DEFAULT now() NOT NULL
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"completed_at" timestamp
 );
 --> statement-breakpoint
 CREATE TABLE "time_log" (
@@ -20,8 +21,7 @@ CREATE TABLE "time_log" (
 	"user_id" text NOT NULL,
 	"start_time" timestamp NOT NULL,
 	"end_time" timestamp,
-	"duration_seconds" integer,
-	"created_at" timestamp DEFAULT now() NOT NULL
+	"duration_seconds" integer
 );
 --> statement-breakpoint
 CREATE TABLE "user" (

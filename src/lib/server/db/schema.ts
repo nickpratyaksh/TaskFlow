@@ -25,7 +25,8 @@ export const task = pgTable('task', {
 	title: text('title').notNull(),
 	description: text('description'),
 	status: taskStatusEnum('status').notNull().default('pending'),
-	createdAt: timestamp('created_at').notNull().defaultNow()
+	createdAt: timestamp('created_at').notNull().defaultNow(),
+	completedAt: timestamp('completed_at')
 });
 
 export const timeLogTable = pgTable('time_log', {

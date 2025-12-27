@@ -82,16 +82,13 @@
 
 				<div class="flex gap-3 pt-2">
 					<button
-						onclick={() => {
-							console.log(editModalTask);
-						}}
 						type="submit"
 						class="flex-1 rounded-lg bg-emerald-500 px-6 py-3 font-medium text-white shadow-lg shadow-emerald-500/30 transition-colors hover:bg-emerald-600"
 					>
 						Save Changes
 					</button>
 					<button
-						onclick={() => (editModalTask = null)}
+						onclick={() => openEditModal(null)}
 						type="button"
 						class="rounded-lg bg-gray-200 px-6 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-300"
 					>
