@@ -1,38 +1,51 @@
-# sv
+# TaskFlow
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A website where users can manage tasks, track time spent using a real-time timer, and view daily productivity summaries. The project is fully made in Sveltekit, and most of the website is rendered server side (SSR) which allows for highly performant user experience.
 
-## Creating a project
+## Tech Stack used:
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Sveltekit
+- Drizzle ORM
+- Lucia Auth
+- Postgresql
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Live Preview
 
-# create a new project in my-app
-npx sv create my-app
-```
+Link - https://taskflow-five-flame.vercel.app/
 
-## Developing
+Test credentials:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+email: nicktestaccount@gmail.com
+password: Test@123
 
-```sh
-npm run dev
+## Local Deployment Steps
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- Install NodeJS and Postgresql
+- Clone the repo
+- npm install
+- create environment variables DATABASE_URL and GEMINI_API_KEY
+- npm run db:generate && npm run db:migrate
+- npm run dev
 
-## Building
+## Checklist
 
-To create a production version of your app:
+- ✅ Live demo Link
+- ✅ Working auth
+- ✅ Test credentials
+- ✅ AI Integration
 
-```sh
-npm run build
-```
+## Things left
 
-You can preview the production build with `npm run preview`.
+- UI polishing and UX improvements
+- View all time logs
+- Total spent time on each task
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Note
+
+I built this project in two days while trying out new libraries. Drizzle and Lucia Auth took a long time to setup with Sveltekit and Postgresql, mostly because of their sub-optimal documentaion (I later found out Lucia Auth was deprecated 5 months ago).
+UI was made with some help from Claude, other than that AIs are not helpful at all as they dont even know Svelte 5 exists, and runes is a feature.
+
+I spent a whole day reading documentation and demo project provided by Lucia Auth. Later I found out another auth library to use for future projects - Better Auth (I found it through the it's creator on reddit.)
+
+Overall it was a pretty fun experience working with Sveltekit, how it handles states and most of the work can be done on the server (SSR).
+There are still a few things left to complete the website which I will be working on the upcoming days.
